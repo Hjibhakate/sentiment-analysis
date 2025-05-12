@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form action="/analyze" method="POST">
+            <textarea name="text" placeholder="Enter your text here...">{{ text or '' }}</textarea>
+            <br>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if sentiment %}
+            <div class="result">
+                <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
